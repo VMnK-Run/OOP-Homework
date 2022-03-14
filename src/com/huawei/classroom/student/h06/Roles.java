@@ -1,6 +1,8 @@
 package com.huawei.classroom.student.h06;
 
-public class Roles extends GameObject implements Move{
+
+//可以移动的游戏角色
+public abstract class Roles extends GameObject implements Move{
     protected int attack;
     protected double range;
     public Roles(int x, int y, int health, int attack, int range) {
@@ -14,6 +16,7 @@ public class Roles extends GameObject implements Move{
         this.y += dy;
     }
 
+    //每个角色可以攻击
     public void attack(GameObject obj) {
         if(obj.isDestroyed()) return;
         if(Utils.getDistance(this, obj) <= this.range){

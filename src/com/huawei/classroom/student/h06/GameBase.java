@@ -25,5 +25,4 @@ public class GameBase extends Buildings{
         }
         return newBuilding;
     }
-
 }

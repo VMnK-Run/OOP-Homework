@@ -6,6 +6,7 @@ public class RifleSoldier extends Roles{
     }
 
     @Override
+    //重写这个函数，针对狗一击致死
     public void attack(GameObject obj){
     	if(obj.isDestroyed()) return;
         if(obj instanceof Dog){
