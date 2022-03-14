@@ -8,7 +8,7 @@ public class Soldier {
         return livingSoldierCount;
     }
 
-    public static int getDeadSoldierCount() {
+    public static int getDeadedSoldierCount() {
         return deadSoldierCount;
     }
 
