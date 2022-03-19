@@ -1,5 +1,7 @@
 package com.huawei.classroom.student.h09;
 
+import java.util.*;
+
 /**
  * 把你作业的代码写到这个类里面
  * 不可以修改类的名字、包名、和固有的几个方法名以及方法的可见性
@@ -22,8 +24,12 @@ public class Home09 {
 	 * @return
 	 */
 	public int getDistinctCharCount(String s) {
-		 
-		return 0;
+		Set set = new HashSet();
+		char[] arrays = s.toCharArray();
+		for(int i = 0; i < arrays.length; i++) {
+			set.add(arrays[i]);
+		}
+		return set.size();
 	}
 	/**
 	 * 返回一段文字中，出现频率最高的字符（不考虑并列第一的情况） 例如：getFrequentChar("好好学习") 返回'好'
@@ -34,8 +40,27 @@ public class Home09 {
 	 * @return
 	 */
 	public char getFrequentChar(String s) {
-		 
-		return ' ';
+		HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+		//Map map = new HashMap();
+		char[] arrays = s.toCharArray();
+		for(int i = 0; i < arrays.length; i++) {
+			if(!map.containsKey(arrays[i])) {
+				map.put(arrays[i], 1);
+			}
+			else {
+				map.put(arrays[i], map.get(arrays[i]) + 1);
+			}
+		}
+		int max = 0;
+		char ch = ' ';
+		Set<Character> set = map.keySet();
+		for(char now:set) {
+			if(map.get(now) > max){
+				max = map.get(now);
+				ch = now;
+			}
+		}
+		return ch;
 	}
 	
 
@@ -49,7 +74,26 @@ public class Home09 {
 	 * @return
 	 */
 	public String getFrequentWord(String content){
-		return null;
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		for(int i = 0; i < content.length() - 1; i++) {
+			String str = content.substring(i, i + 2);
+			if(!map.containsKey(str)) {
+				map.put(str, 1);
+			}
+			else {
+				map.put(str, map.get(str) + 1);
+			}
+		}
+		Set<String> set = map.keySet();
+		int max = 0;
+		String res = " ";
+		for(String str : set){
+			if(map.get(str) > max){
+				max = map.get(str);
+				res = str;
+			}
+		}
+		return res;
 	}
 	 
 	 
@@ -61,7 +105,11 @@ public class Home09 {
 	 * @param buf
 	 */
 	public void zipStringBufer(StringBuffer buf) {
-		 
+		 for(int i = 0; i < buf.length(); i++) {
+			 if(buf.charAt(i) == ' ') {
+				 buf.deleteCharAt(i);
+			 }
+		 }
 	}
 
  
