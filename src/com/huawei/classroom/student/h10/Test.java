@@ -20,7 +20,8 @@ public class Test {
 
 		Home10 home10 = new Home10();
 		// 完成 Home10的orderChar方法,开业在本目录下适当的增加类
-		if (home10.orderChar("abcdefgg").equals("gabcdef")) {
+		//System.out.println(home10.orderChar("abcdefgg"));
+		if (home10.orderChar("abcdefggsss").equals("sgabcdef")) {
 			System.out.println("PASS!");
 		}
 

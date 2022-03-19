@@ -14,7 +14,7 @@ import java.util.HashMap;
  */
 public class Home10 {
 	public Home10() {
-	} 
+	}
 	/**
 	 * 将一个字符串中字符按出现频率的高到低排序返回，如果两个字符出现的频率一样，则将最先出现的字符排在前面
 	 * 例如：orderChar(“abcdefg”)返回 “abcdefg” 
@@ -27,25 +27,29 @@ public class Home10 {
 	public String orderChar(String content) {
 		HashMap<Character, Integer> map = new HashMap<>();
 		for(int i = 0; i < content.length(); i++) {
-			char ch = content.charAt(i);
-			if(!map.containsKey(ch)) {
-				map.put(ch, 1);
+			if(!map.containsKey(content.charAt(i))){
+				map.put(content.charAt(i) ,1);
 			}
 			else {
-				map.put(ch, map.get(ch) + 1);
+				map.put(content.charAt(i) ,map.get(content.charAt(i)) + 1);
 			}
 		}
-		char[] arrays = content.toCharArray();
+		String res = "";
 		for(int i = 0; i < content.length(); i++) {
-			for(int j = i + 1; j < content.length(); j++) {
-				if(map.get(arrays[j]) > map.get(arrays[i])){
-					char temp = arrays[j];
-					arrays[j] = arrays[i];
-					arrays[i] = temp;
+			int max = 0;
+			int idx = 0;
+			String ch = "";
+			for(int j = 0; j < content.length(); j++) {
+				if(max < map.get(content.charAt(j))) {
+					idx = j;
+					max = map.get(content.charAt(j));
 				}
 			}
+			ch += content.charAt(idx);
+			res += ch;
+			content = content.replace(ch, "");
+			i = -1;
 		}
-		String res = arrays.toString();
 		return res;
 	}
 	
