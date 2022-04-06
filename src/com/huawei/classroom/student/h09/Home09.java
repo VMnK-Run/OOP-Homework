@@ -108,6 +108,7 @@ public class Home09 {
 		 for(int i = 0; i < buf.length(); i++) {
 			 if(buf.charAt(i) == ' ') {
 				 buf.deleteCharAt(i);
+				 i--;
 			 }
 		 }
 	}

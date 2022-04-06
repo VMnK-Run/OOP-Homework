@@ -31,7 +31,7 @@ public class Test {
 			System.out.println("getFrequentWord passed!");
 		}
 		
-		StringBuffer buf=new StringBuffer("a b c ");
+		StringBuffer buf=new StringBuffer("    a  b  c      ");
 		util.zipStringBufer(buf);
 		if(buf.toString().equals("abc") ) {
 			System.out.println("zipStringBufer passed!");
