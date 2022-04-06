@@ -29,7 +29,7 @@ public class Test {
 		right.add("c");
 		System.out.println(result);
 		if(result.equals(right)) {
-			System.out.println("做对了");
+			System.out.println("做对了，你真是个小机灵鬼！");
 		}else {
 			System.out.println(result);
 		}
