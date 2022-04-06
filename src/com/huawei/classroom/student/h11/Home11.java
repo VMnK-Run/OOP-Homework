@@ -2,7 +2,6 @@ package com.huawei.classroom.student.h11;
 
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 
 public class Home11 {
 
@@ -10,7 +9,7 @@ public class Home11 {
 		// TODO Auto-generated constructor stub
 	}
 
- 
+
 	/**
 	 * 字符串content是一个超市的历次购物小票的合计，每次购物的明细之间用分号分割，每个商品之间用半角逗号分开
 	 * 请找出   哪两个商品被同时购买的频率最高，将这2个商品名称返回，名称之间用逗号分隔
@@ -19,8 +18,32 @@ public class Home11 {
 	 * @return 哪两个商品被同时购买的频率最高，将这2个商品名称返回，名称之间用逗号分隔
 	 */
 	public String getFrequentItem(String content)  {
-		return "";
+		HashMap<String, Integer> map = new HashMap<>();
+		String res = "";
+		String[] str = content.split(";");
+		int length = str.length;
+		for(int i = 0; i < length; i++) {
+			String[] s1 = str[i].split(",");
+			for(int j = 0; j < s1.length - 1; j++) {
+				for(int k = j + 1; k < s1.length; k++) {
+					String comb = s1[j] + "," + s1[k];
+					if(!map.containsKey(comb)) {
+						map.put(comb, 1);
+					} else {
+						map.put(comb, map.get(comb) + 1);
+					}
+				}
+			}
+		}
+		Iterator it = map.keySet().iterator();
+		int max = 0;
+		while(it.hasNext()) {
+			String temp = (String) it.next();
+			if(max < map.get(temp)) {
+				max = map.get(temp);
+				res = temp;
+			}
+		}
+		return res;
 	}
-
- 
 }
