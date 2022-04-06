@@ -37,7 +37,7 @@ public class Test {
 
 		try {
 			// 测试的时候，红楼梦文件名，这个文件名不固定，测试的时候可能在别的位置
-			String filename = "D:\\test\\java\\com\\huawei\\classroom\\student\\h13\\red.txt";
+			String filename = "D:\\北小洋\\21222\\面向对象程序设计\\OOP-Homework\\src\\com\\huawei\\classroom\\student\\h13\\red.txt";
 			//使用文件名初始化Analysis类
 			Analysis  analysis = new Analysis (filename);
 			// 要统计的汉字，测试的时候不固定，可能统计任意的汉字

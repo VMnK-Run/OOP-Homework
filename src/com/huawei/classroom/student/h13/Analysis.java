@@ -6,7 +6,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.util.List;
+import java.util.*;
 
 /**
  * 在本包下增加合适的类和方法，使得Test类能够测试通过 
@@ -24,6 +24,9 @@ public class Analysis {
 	 * 
 	 */
 	public Analysis(String filename) throws Exception {
+		String text = readFromTxt(filename);
+		text = text.replaceAll("[\\pP\t\r]", "");
+		chapters = splitContentToChapter(text);
 	}
 
 	/**
@@ -57,8 +60,27 @@ public class Analysis {
 	 * @param n
 	 * @return
 	 */
-	public List<String> getTopNWords(  int n){
-		return null;
+	public List<String> getTopNWords(int n){
+		List<String> res = new ArrayList<>();
+		Map<String, Integer>map = new HashMap<>();
+		for(int i = 1; i < chapters.length; i++) {
+			String text = chapters[i];
+			for(int j = 0; j < text.length() - 1; j++){
+				if(text.charAt(j) == ' ' || text.charAt(j + 1) == ' ') continue;
+				String word = text.substring(j, j + 2);
+				if(!map.containsKey(word)) {
+					map.put(word, 1);
+				} else {
+					map.put(word, map.get(word) + 1);
+				}
+			}
+		}
+		List<Map.Entry<String, Integer>> sortList = new ArrayList<>(map.entrySet());
+		sortList.sort((o1, o2) -> o2.getValue().compareTo(o1.getValue()));
+		for(int i = 0; i < n; i++) {
+			res.add(sortList.get(i).getKey());
+		}
+		return res;
 	}
 	/**
 	 * 关闭输入输入流
@@ -96,7 +118,18 @@ public class Analysis {
 	 * @throws Exception
 	 */
 	public int[] getStringFrequent(String str) throws Exception {
-		return null;
+		int[] counts = new int[120];
+		for(int i = 1; i < chapters.length; i++) {
+			int cnt = 0;
+			int len = str.length();
+			for(int j = 0; j < chapters[i].length() - len + 1; j++) {
+				String temp = chapters[i].substring(j, j + len);
+				if(temp.equals(str)) {
+					cnt++;
+				}
+			}
+			counts[i - 1] = cnt;
+		}
+		return counts;
 	}
-
 }
