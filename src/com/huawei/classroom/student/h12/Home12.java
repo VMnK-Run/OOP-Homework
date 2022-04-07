@@ -9,7 +9,7 @@ public class Home12 {
 	public Home12() {
 		// TODO Auto-generated constructor stub
 	}
-	public Set<Set<String>> comb = new HashSet<>();
+
 	/**
 	 * @param items, 单次购物小票
 	 * @param set 当前选中的集合；
@@ -18,7 +18,7 @@ public class Home12 {
 	 * @param idx 当前搜索下标
 	 * 用到了深度优先搜索
 	 */
-	public void getNItems(String[] items, Set<String> set, int n, int now, int idx) {
+	public void getNItems(String[] items, Set<String> set, int n, int now, int idx, Set<Set<String>> comb) {
 		if(now == n) {
 			Set<String> newSet = new HashSet<>(set);
 			comb.add(newSet);
@@ -26,7 +26,7 @@ public class Home12 {
 		}
 		for(int i = idx; i < items.length; i++) {
 			set.add(items[i]);
-			getNItems(items, set, n, now + 1, i + 1);
+			getNItems(items, set, n, now + 1, i + 1, comb);
 			set.remove(items[i]);
 		}
 	}
@@ -45,8 +45,9 @@ public class Home12 {
 		HashMap<Set<String>, Integer> map = new HashMap<>();
 		String[] receipt = content.split(";");
 		for(int i = 0; i < receipt.length; i++) {
+			Set<Set<String>> comb = new HashSet<>();
 			String[] item = receipt[i].split(",");
-			getNItems(item, new HashSet<>(), n, 0, 0);
+			getNItems(item, new HashSet<>(), n, 0, 0, comb);
 			Iterator it = comb.iterator();
 			while(it.hasNext()) {
 				Set<String> temp = (Set<String>) it.next();
