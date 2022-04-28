@@ -18,6 +18,7 @@ public class Home11 {
 	 * @return 哪两个商品被同时购买的频率最高，将这2个商品名称返回，名称之间用逗号分隔
 	 */
 	public String getFrequentItem(String content)  {
+		//HashMap的键设置为每两个物品组成的字符串
 		HashMap<String, Integer> map = new HashMap<>();
 		String res = "";
 		String[] str = content.split(";");
@@ -26,7 +27,7 @@ public class Home11 {
 			String[] s1 = str[i].split(",");
 			for(int j = 0; j < s1.length - 1; j++) {
 				for(int k = j + 1; k < s1.length; k++) {
-					String comb = s1[j] + "," + s1[k];
+					String comb = s1[j] + "," + s1[k];//两两进行组合
 					if(!map.containsKey(comb)) {
 						map.put(comb, 1);
 					} else {
@@ -35,15 +36,15 @@ public class Home11 {
 				}
 			}
 		}
-		Iterator it = map.keySet().iterator();
+		Iterator it = map.keySet().iterator();//遍历这个map
 		int max = 0;
 		while(it.hasNext()) {
 			String temp = (String) it.next();
 			if(max < map.get(temp)) {
 				max = map.get(temp);
 				res = temp;
-			}
+			}//找到其中最大的那个
 		}
-		return res;
+		return res;//返回
 	}
 }

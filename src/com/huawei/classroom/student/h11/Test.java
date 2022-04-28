@@ -25,7 +25,7 @@ public class Test {
 		String content = "炸鸡,可乐,啤酒;薯片,啤酒,炸鸡;啤酒,雪碧,炸鸡;可乐,牙膏;可乐,面包;啤酒,面包;可乐,榨菜;啤酒,雪碧";
 		String fq = util.getFrequentItem(content);
 		if ("啤酒,炸鸡".equals(fq) || "炸鸡,啤酒".equals(fq)) {
-			System.out.println("Congratulations!");
+			System.out.println("Congratulations! 做对了");
 		}
 	}
 

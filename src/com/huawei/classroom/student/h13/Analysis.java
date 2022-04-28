@@ -24,9 +24,9 @@ public class Analysis {
 	 * 
 	 */
 	public Analysis(String filename) throws Exception {
-		String text = readFromTxt(filename);
-		text = text.replaceAll("[\\pP\t\r]", "");
-		chapters = splitContentToChapter(text);
+		String text = readFromTxt(filename);//文件读入
+		text = text.replaceAll("[\\pP\t\r]", "");//利用正则表达式将标点符号、换号符等删除
+		chapters = splitContentToChapter(text);//要操作的数组
 	}
 
 	/**
@@ -124,7 +124,7 @@ public class Analysis {
 			int len = str.length();
 			for(int j = 0; j < chapters[i].length() - len + 1; j++) {
 				String temp = chapters[i].substring(j, j + len);
-				if(temp.equals(str)) {
+				if(temp.equals(str)) {//利用遍历在每一章中搜索能够匹配的str
 					cnt++;
 				}
 			}
