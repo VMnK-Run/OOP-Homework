@@ -1,6 +1,7 @@
 package com.huawei.classroom.student.h14;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -28,13 +29,14 @@ public class Test {
 			 **/
 			// 实际测试中，文件存放位置可能改变，学生数量也可能改变
 			// 其中每行为一个学生信息，包括学号、姓名、班级，以tab符号分割(\t)，
-			String studentListFileName="D:/course/course/exam/src/main/java/com/huawei/classroom/student/h14/students.txt";
+			String studentListFileName="D:/北小洋/21222/面向对象程序设计/OOP-Homework/src/com/huawei/classroom/student/h14/students.txt";
 			// 学生照片存放的目录，不会包含子目录，本目录的pic给出了存放图片的目录示例，实际测试中，pic 位置可能改变，其下面文件数量也会改变
-			String picDir="D:/course/course/exam/src/main/java/com/huawei/classroom/student/h14/pic/";
-			String targetDir="D:/course/course/exam/src/main/java/com/huawei/classroom/student/h14/target/";
+			String picDir="D:/北小洋/21222/面向对象程序设计/OOP-Homework/src/com/huawei/classroom/student/h14/pic/";
+			String targetDir="D:/北小洋/21222/面向对象程序设计/OOP-Homework/src/com/huawei/classroom/student/h14/target/";
 					
-			MyTools tools = new MyTools(  );
-			
+			MyTools tools = new MyTools();
+
+
 			// nopicsIds返回所有没有上交照片的学生ID（）
 			Set<String> nopicsIds = tools.copyToTargetDirAndReturnNoExist(studentListFileName,picDir,targetDir);
 			Set<String> test=new HashSet<String>();
