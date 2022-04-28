@@ -23,7 +23,7 @@ public class Test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// 端口号测试的时候随机给
-		int port = 8088;
+		int port = 9999;
 		// 要求完成MyServer类
 		new MyServer().startListen(port);
 		Socket socket = null;
