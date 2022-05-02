@@ -11,14 +11,17 @@ public class WarFactory extends Buildings{
     public Tank building(EnumObjectType type) {
         Tank newTank = null;
         switch (type) {
-            case heavyTank -> newTank = new HeavyTank(this.player, this.x, this.y);
-            case mediumTank -> newTank = new MediumTank(this.player, this.x, this.y);
-            default -> {
-
-            }
+            case heavyTank :
+                newTank = new HeavyTank(this.player, this.x, this.y);
+                break;
+            case mediumTank :
+                newTank = new MediumTank(this.player, this.x, this.y);
+                break;
         }
-        newTank.setType(type.toString());
-        BattleField.gameObjects.add(newTank);
+        if(newTank != null) {
+            newTank.setType(type.toString());
+            BattleField.gamesObjects.add(newTank);
+        }
         return newTank;
     }
 }

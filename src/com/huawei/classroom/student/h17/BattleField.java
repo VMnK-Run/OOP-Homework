@@ -9,7 +9,7 @@ import java.util.List;
 
 public class BattleField {
     private static List<Player> players = new ArrayList<>();
-    public static List<GameObject> gameObjects = new ArrayList<>();
+    public static List<GameObject> gamesObjects = new ArrayList<>();
     public static List<String> results = new ArrayList<>();
 
     public BattleField() {
@@ -22,51 +22,99 @@ public class BattleField {
         for(String[] rule: rules) {
             if(rule[0].equals(EnumObjectType.base.toString())) {
                 switch (rule[1]) {
-                    case "health" -> Params.baseHealth = Integer.parseInt(rule[2]);
-                    case "range" -> Params.baseRange = Integer.parseInt(rule[2]);
-                    case "strength" -> Params.baseStrength = Integer.parseInt(rule[2]);
+                    case "health" :
+                        Params.baseHealth = Integer.parseInt(rule[2]);
+                        break;
+                    case "range" :
+                        Params.baseRange = Integer.parseInt(rule[2]);
+                        break;
+                    case "strength" :
+                        Params.baseStrength = Integer.parseInt(rule[2]);
+                        break;
                 }
             } else if (rule[0].equals(EnumObjectType.heavyTank.toString())) {
                 switch (rule[1]) {
-                    case "health" -> Params.heavyTankHealth = Integer.parseInt(rule[2]);
-                    case "range" -> Params.heavyTankRange = Integer.parseInt(rule[2]);
-                    case "strength" -> Params.heavyTankStrength = Integer.parseInt(rule[2]);
+                    case "health" :
+                        Params.heavyTankHealth = Integer.parseInt(rule[2]);
+                        break;
+                    case "range" :
+                        Params.heavyTankRange = Integer.parseInt(rule[2]);
+                        break;
+                    case "strength" :
+                        Params.heavyTankStrength = Integer.parseInt(rule[2]);
+                        break;
                 }
             } else if (rule[0].equals(EnumObjectType.mediumTank.toString())) {
                 switch (rule[1]) {
-                    case "health" -> Params.mediumTankHealth = Integer.parseInt(rule[2]);
-                    case "range" -> Params.mediumTankRange = Integer.parseInt(rule[2]);
-                    case "strength" -> Params.mediumTankStrength = Integer.parseInt(rule[2]);
+                    case "health" :
+                        Params.mediumTankHealth = Integer.parseInt(rule[2]);
+                        break;
+                    case "range" :
+                        Params.mediumTankRange = Integer.parseInt(rule[2]);
+                        break;
+                    case "strength" :
+                        Params.mediumTankStrength = Integer.parseInt(rule[2]);
+                        break;
                 }
             } else if (rule[0].equals(EnumObjectType.rifleSoldier.toString())) {
                 switch (rule[1]) {
-                    case "health" -> Params.rifleSoldierHealth = Integer.parseInt(rule[2]);
-                    case "range" -> Params.rifleSoldierRange = Integer.parseInt(rule[2]);
-                    case "strength" -> Params.rifleSoldierStrength = Integer.parseInt(rule[2]);
+                    case "health" :
+                        Params.rifleSoldierHealth = Integer.parseInt(rule[2]);
+                        break;
+                    case "range" :
+                        Params.rifleSoldierRange = Integer.parseInt(rule[2]);
+                        break;
+                    case "strength" :
+                        Params.rifleSoldierStrength = Integer.parseInt(rule[2]);
+                        break;
                 }
             } else if (rule[0].equals(EnumObjectType.RPGSoldier.toString())) {
                 switch (rule[1]) {
-                    case "health" -> Params.RPGSoldierHealth = Integer.parseInt(rule[2]);
-                    case "range" -> Params.RPGSoldierRange = Integer.parseInt(rule[2]);
-                    case "strength" -> Params.RPGSoldierStrength = Integer.parseInt(rule[2]);
+                    case "health" :
+                        Params.RPGSoldierHealth = Integer.parseInt(rule[2]);
+                        break;
+                    case "range" :
+                        Params.RPGSoldierRange = Integer.parseInt(rule[2]);
+                        break;
+                    case "strength" :
+                        Params.RPGSoldierStrength = Integer.parseInt(rule[2]);
+                        break;
                 }
             } else if (rule[0].equals(EnumObjectType.dog.toString())) {
                 switch (rule[1]) {
-                    case "health" -> Params.dogHealth = Integer.parseInt(rule[2]);
-                    case "range" -> Params.dogRange = Integer.parseInt(rule[2]);
-                    case "strength" -> Params.dogStrength = Integer.parseInt(rule[2]);
+                    case "health" :
+                        Params.dogHealth = Integer.parseInt(rule[2]);
+                        break;
+                    case "range" :
+                        Params.dogRange = Integer.parseInt(rule[2]);
+                        break;
+                    case "strength" :
+                        Params.dogStrength = Integer.parseInt(rule[2]);
+                        break;
                 }
             } else if (rule[0].equals(EnumObjectType.barrack.toString())) {
                 switch (rule[1]) {
-                    case "health" -> Params.barrackHealth = Integer.parseInt(rule[2]);
-                    case "range" -> Params.barrackRange = Integer.parseInt(rule[2]);
-                    case "strength" -> Params.barrackStrength = Integer.parseInt(rule[2]);
+                    case "health" :
+                        Params.barrackHealth = Integer.parseInt(rule[2]);
+                        break;
+                    case "range" :
+                        Params.barrackRange = Integer.parseInt(rule[2]);
+                        break;
+                    case "strength" :
+                        Params.barrackStrength = Integer.parseInt(rule[2]);
+                        break;
                 }
             } else if (rule[0].equals(EnumObjectType.warFactory.toString())) {
                 switch (rule[1]) {
-                    case "health" -> Params.warFactoryHealth = Integer.parseInt(rule[2]);
-                    case "range" -> Params.warFactoryRange = Integer.parseInt(rule[2]);
-                    case "strength" -> Params.warFactoryStrength = Integer.parseInt(rule[2]);
+                    case "health" :
+                        Params.warFactoryHealth = Integer.parseInt(rule[2]);
+                        break;
+                    case "range" :
+                        Params.warFactoryRange = Integer.parseInt(rule[2]);
+                        break;
+                    case "strength" :
+                        Params.warFactoryStrength = Integer.parseInt(rule[2]);
+                        break;
                 }
             }
         }
@@ -86,7 +134,7 @@ public class BattleField {
     public static GameBase createGameBase(Player player, int x, int y) {
         GameBase newGameBase = new GameBase(player, x, y);
         newGameBase.setType(EnumObjectType.base.toString());
-        gameObjects.add(newGameBase);
+        gamesObjects.add(newGameBase);
         return newGameBase;
     }
 

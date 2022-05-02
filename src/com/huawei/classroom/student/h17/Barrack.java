@@ -11,12 +11,20 @@ public class Barrack extends Buildings{
     public Roles traing(EnumObjectType type) {
         Roles newRole = null;
         switch (type) {
-            case dog -> newRole = new Dog(this.player, this.x, this.y);
-            case RPGSoldier -> newRole = new RPGSoldier(this.player, this.x, this.y);
-            case rifleSoldier -> newRole = new RifleSoldier(this.player, this.x, this.y);
+            case dog :
+                newRole = new Dog(this.player, this.x, this.y);
+                break;
+            case RPGSoldier :
+                newRole = new RPGSoldier(this.player, this.x, this.y);
+                break;
+            case rifleSoldier :
+                newRole = new RifleSoldier(this.player, this.x, this.y);
+                break;
         }
-        newRole.setType(type.toString());
-        BattleField.gameObjects.add(newRole);
+        if(newRole != null) {
+            newRole.setType(type.toString());
+            BattleField.gamesObjects.add(newRole);
+        }
         return newRole;
     }
 }

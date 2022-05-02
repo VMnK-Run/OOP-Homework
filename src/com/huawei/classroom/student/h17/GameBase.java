@@ -12,13 +12,17 @@ public class GameBase extends Buildings{
     public Buildings building(EnumObjectType type, int x, int y) {
         Buildings newBuilding = null;
         switch (type) {
-            case barrack -> newBuilding = new Barrack(this.player, x, y);
-            case warFactory -> newBuilding = new WarFactory(this.player, x, y);
-            default -> {
-            }
+            case barrack :
+                newBuilding = new Barrack(this.player, x, y);
+                break;
+            case warFactory :
+                newBuilding = new WarFactory(this.player, x, y);
+                break;
         }
-        newBuilding.setType(type.toString());
-        BattleField.gameObjects.add(newBuilding);
+        if(newBuilding != null) {
+            newBuilding.setType(type.toString());
+            BattleField.gamesObjects.add(newBuilding);
+        }
         return newBuilding;
     }
 }

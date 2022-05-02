@@ -47,8 +47,8 @@ public class GameObject {
         if(this.strength <= 0 || this.isDestroyed()) return;
         double min = this.range;
         int idx = -1;
-        for(int i = 0; i < BattleField.gameObjects.size(); i++) {
-            GameObject obj = BattleField.gameObjects.get(i);
+        for(int i = 0; i < BattleField.gamesObjects.size(); i++) {
+            GameObject obj = BattleField.gamesObjects.get(i);
             if(obj.isDestroyed() || obj.player == this.player) {
                 continue;
             }
@@ -58,9 +58,9 @@ public class GameObject {
             }
         }
         if(idx >= 0) {
-            String line = this.debug() + " 攻击 " + BattleField.gameObjects.get(idx).debug();
-            attack(BattleField.gameObjects.get(idx));
-            line += " 攻击后 health=" + BattleField.gameObjects.get(idx).getHealth();
+            String line = this.debug() + " 攻击 " + BattleField.gamesObjects.get(idx).debug();
+            attack(BattleField.gamesObjects.get(idx));
+            line += " 攻击后 health=" + BattleField.gamesObjects.get(idx).getHealth();
             BattleField.results.add(line);
         }
     }
