@@ -9,7 +9,7 @@ public class ThreadUtil extends Thread {
     @Override
     public void run() {
         try {
-            Thread.sleep(100);
+            Thread.sleep(100);//设置在0-1000ms内
         } catch(InterruptedException e) {
             e.printStackTrace();
         } finally {

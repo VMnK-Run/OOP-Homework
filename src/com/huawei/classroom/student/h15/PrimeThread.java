@@ -12,6 +12,7 @@ public class PrimeThread extends Thread{
         this.end = end;
     }
 
+    //判断是否为素数
     public boolean isPrime(Long num) {
         for(long i = 2; i <= Math.sqrt(num); i++) {
             if(num % i == 0) {
@@ -27,6 +28,7 @@ public class PrimeThread extends Thread{
 
     @Override
     public void run(){
+        //线程运行，遍历区间，如果是素数则加入list中
         for(long i = this.start; i < this.end; i++) {
             if(isPrime(i)) {
                 res.add(i);

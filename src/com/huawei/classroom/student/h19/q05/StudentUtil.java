@@ -35,6 +35,8 @@ public class StudentUtil {
                     person.setChinese(score);
                 } else if(subject.equals("数学")) {
                     person.setMath(score);
+                } else if(subject.equals("英语")){
+                    person.setEnglish(score);
                 } else {
                     person.setOther(score);
                 }
