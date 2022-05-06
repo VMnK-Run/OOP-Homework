@@ -12,3 +12,10 @@ com.huawei.classroom.student.h18.Apple.weight=500
 com.huawei.classroom.student.h18.Car.price=200000
 com.huawei.classroom.student.h18.Car.color="黑色"
 com.huawei.classroom.student.h18.Car.brand="大众"
+
+com.huawei.classroom.student.h18.Cat.nickname="大猫"
+com.huawei.classroom.student.h18.Cat.age=2
+
+com.huawei.classroom.student.h18.Employee.name="张三"
+com.huawei.classroom.student.h18.Employee.salary=3000
+com.huawei.classroom.student.h18.Employee.address="南开区"

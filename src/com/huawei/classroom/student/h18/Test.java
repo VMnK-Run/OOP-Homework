@@ -25,8 +25,15 @@ public class Test {
 			if("大众".equals(car.getBrand())&&"黑色".equals(car.getColor())&&200000==car.getPrice()  ) {
 				System.out.println("case 2 ok!");
 			}
-			
-		} catch ( Exception e) {
+			Cat cat = f.createInstance(Cat.class);
+			if("大猫".equals(cat.getNickname()) && 2 == cat.getAge()) {
+				System.out.println("case 3 ok!");
+			}
+			Employee employee = f.createInstance(Employee.class);
+			if("南开区".equals(employee.getAddress()) && "张三".equals(employee.getName()) && 3000 == employee.getSalary()) {
+				System.out.println("case 4 ok!");
+			}
+ 		} catch ( Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace(); 
 		} 

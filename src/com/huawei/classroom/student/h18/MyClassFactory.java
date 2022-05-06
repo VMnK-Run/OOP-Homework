@@ -8,11 +8,11 @@ import java.util.Map;
 
 public class MyClassFactory {
     private final Map<String, Map<String, Object>> params; //保存参数，键为类名，值为一个键为属性名，值为参数的Map
-    
+
     //构造函数
     public MyClassFactory(String fileName) {
         this.params = readLines(fileName);
-    } 
+    }
 
 
     //创建实例
@@ -49,8 +49,10 @@ public class MyClassFactory {
     //读取配置文件
     public Map<String, Map<String, Object>> readLines(String fileName) {
         Map<String, Map<String, Object>> res = new HashMap<>();
-        try (Reader reader = new FileReader(fileName);
-            LineNumberReader lineReader = new LineNumberReader(reader)){
+        try (InputStream in = new FileInputStream(fileName);
+        		//不然会导致乱码，必须设置为UTF-8
+             InputStreamReader reader = new InputStreamReader(in, "UTF-8");
+             LineNumberReader lineReader = new LineNumberReader(reader)){
             String line = "";
             line = lineReader.readLine();
             while(line != null) {
